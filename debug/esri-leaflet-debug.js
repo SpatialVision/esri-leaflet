@@ -1872,8 +1872,8 @@
 	  },
 
 	  getTileUrl: function (tilePoint) {
-	    var zoomLevel = tilePoint.z>18?18:tilePoint.z;
-	    return L.Util.template(this.tileUrl, L.extend({
+		  var zoomLevel = tilePoint.z>this.options.maxNativeZoom?this.options.maxNativeZoom:tilePoint.z;
+		  return L.Util.template(this.tileUrl, L.extend({
 	      s: this._getSubdomain(tilePoint),
 	      z: (this._lodMap && this._lodMap[zoomLevel]) ? this._lodMap[zoomLevel] : zoomLevel, // try lod map first, then just defualt to zoom level
 	      x: tilePoint.x,
